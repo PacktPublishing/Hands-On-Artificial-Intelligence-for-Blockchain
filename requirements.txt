@@ -1,0 +1,6 @@
+requests
+web3
+flask
+flask_cors
+pandas
+sklearn
