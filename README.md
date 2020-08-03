@@ -13,9 +13,9 @@ This repository is a tutorial with instructions to build a simple contact tracin
 
 You can pre-order the book on [Packt website](https://www.packtpub.com/data/hands-on-artificial-intelligence-for-blockchain), [Amazon global website](https://bit.ly/handson-ai-blockchain-amazon-global-github) or [Amazon India website](https://bit.ly/handson-ai-blockchain-amazon-india-github).
 
+Clone this repository in your local machine and follow appropriate instructions.
+
 ## Instructions
-
-
 
 ### Dependencies
 
@@ -102,8 +102,22 @@ just run-server
 just run-web
 ```
 
+## Detailed instructions for beginners
+
+If you are a beginner and need help with detailed instructions, you can refer to the detailed manual which includes screenshots for specific Operating Systems:
+
+1. [Ubuntu users](./instructions/linux.md)
+
+2. MacOS users (Coming soon)
+
+3. Windows users (Coming soon)
+
 ## License
 
 MIT License
 
 Copyright (c) 2020 Ganesh Prasad Kumble and DICTAO authors
+
+The original source code of the dictao project is available [here](https://github.com/0zAND1z/dictao).
+
+The original Jupyter Notebook of contact tracing model is available [here](https://github.com/madatpython/PRANA/blob/packt/prana_contact_tracing_using_DBSCAN.ipynb).
