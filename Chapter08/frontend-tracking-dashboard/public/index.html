@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        DICTAO: Frontend dashboard for contact tracing
+    </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <script>
+        function getInfectedIDs() {
+            document.getElementById("results").style.display = "none";
+            var out = '<table class="table"><thead><tr><th scope="col">Potentially infected IDs</th></tr></thead><tbody>';
+            var i;
+            var input_id = document.getElementById('input_id').value;
+            var ajaxRequest = new XMLHttpRequest();
+            ajaxRequest.responseType = 'json';
+            ajaxRequest.onreadystatechange = function () {
+                if (ajaxRequest.readyState == 4) {
+                    if (ajaxRequest.status == 200) {
+                        var results_response = ajaxRequest.response;
+                        for(i=0; i < results_response.potential_infected_ids.length; i++) {
+                            out += '<tr><td>'+results_response.potential_infected_ids[i]+'</td><tr>'
+                        }
+                        out += '</tbody></table>'
+                        document.getElementById("results").innerHTML = out;
+                        document.getElementById("results").style.display = "block";
+                    }
+                    else if (ajaxRequest.status == 404) {
+                        alert("Please check the entered ID again!")
+                    }
+                    else if (ajaxRequest.status == 500) {
+                        alert("Internal server ocurred. Please try again!")
+                    }
+                }
+            }
+            ajaxRequest.open('GET', 'http://127.0.0.1:5000/api/v0/get_infections?id=' + input_id);
+            ajaxRequest.setRequestHeader('Access-Control-Allow-Origin', '*');
+            ajaxRequest.send();
+        }
+    </script>
+
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <h1>DICTAO: Contact tracing web application</h1>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <p><input type="text" id="input_id" name="input_id" placeholder="Enter suspected ID" size="42">
+                    <button type="button" class="btn btn-primary" onclick="getInfectedIDs()">Get potentially infected IDs</button>
+                </p>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-auto">
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
