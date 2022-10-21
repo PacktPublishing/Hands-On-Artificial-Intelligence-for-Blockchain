@@ -121,3 +121,7 @@ Copyright (c) 2020 Ganesh Prasad Kumble and DICTAO authors
 The original source code of the dictao project is available [here](https://github.com/0zAND1z/dictao).
 
 The original Jupyter Notebook of contact tracing model is available [here](https://github.com/madatpython/PRANA/blob/packt/prana_contact_tracing_using_DBSCAN.ipynb).
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781838822293">https://packt.link/free-ebook/9781838822293 </a> </p>
